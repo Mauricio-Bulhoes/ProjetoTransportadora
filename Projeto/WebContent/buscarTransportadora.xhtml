@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="titulo">
+		Buscar Transportadora
+	</ui:define>
+	<ui:define name="conteudo">
+		<h:form id="Transportadora">
+			<p:dataTable var="transp" value="#{transportadoraController.transportadoras}" widgetVar="transpTable1"
+                 emptyMessage="Nenhuma transportadora encontrada">
+                 
+                <p:column filterBy="#{transp.nome}" headerText="Nome" filterMatchMode="contains">
+            		<p:commandLink value="#{transp.nome}" action="#{transportadoraController.preparar(transp)}"></p:commandLink>
+        		</p:column>
+ 
+        		<p:column filterBy="#{transp.estado}" headerText="Estado" filterMatchMode="contains">
+            		<h:outputText value="#{transp.estado}" />
+        		</p:column>
+ 
+        		<p:column filterBy="#{transp.cidade}" headerText="Cidade" filterMatchMode="contains">
+            		<h:outputText value="#{transp.cidade}" />
+        		</p:column>
+ 
+        		<p:column filterBy="#{transp.modal}" headerText="Modal" filterMatchMode="contains">
+            		<h:outputText value="#{transp.modal}" />
+        		</p:column>
+ 
+        		<p:column filterBy="#{transp.cnpj}" headerText="CNPJ" filterMatchMode="contains">
+            		<h:outputText value="#{transp.cnpj}" />
+        		</p:column>
+ 
+       			<p:column filterBy="#{transp.telefone}" headerText="Telefone" filterMatchMode="contains">
+            		<h:outputText value="#{transp.telefone}" />
+        		</p:column>
+ 
+        		<p:column filterBy="#{transp.celular}" headerText="Celular" filterMatchMode="contains">
+            		<h:outputText value="#{transp.celular}" />
+        		</p:column>
+ 
+        		<p:column filterBy="#{transp.email}" headerText="E-mail" filterMatchMode="contains">
+            		<h:outputText value="#{transp.email}" />
+        		</p:column>
+        
+    		</p:dataTable>
+		</h:form>
+		
+		
+		
+	</ui:define>
+	<ui:define name="texto">
+		Buscar Transportadora
+	</ui:define>
+</ui:composition>
+
+</html>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="titulo">
+		Nova Transportadora
+	</ui:define>
+	<ui:define name="conteudo">
+		<h:form id="Transportadora">
+			<fieldset>
+				<h:messages />
+				<legend>Dados da Transportadora</legend>
+				<h:messages showSummary="true" showDetail="true" />
+				<h:panelGrid columns="3">
+				
+					<p:outputLabel value="Email:" for="Email" />
+					<p:inputText id="Email"
+						value="#{transportadoraController.transportadora.email }" required="true"
+						requiredMessage="Preenchimento obrigatório" />
+					<p:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="Nome:" for="nome" />
+					<p:inputText id="nome"
+						value="#{transportadoraController.transportadora.nome}" required="true"
+						requiredMessage="Preenchimento obrigatório" />
+					<h:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="Empresa:" for="empresa" />
+					<p:inputText id="empresa"
+						value="#{transportadoraController.transportadora.empresa}" required="true"
+						requiredMessage="Preenchimento obrigatório" />
+					<h:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="CNPJ:" />
+					<p:inputMask mask="99.999.999/9999-99" size="20" maxlength="20"
+						value="#{transportadoraController.transportadora.cnpj}" required="true"
+						requiredMessage="Preenchimento obrigatório"></p:inputMask>
+					<p:message for="nome" style="color : red" />
+
+					<p:outputLabel value="Telefone:" for="telefone" />
+					<p:inputMask mask="(99) 9999.9999" size="20" id="telefone"
+						maxlength="14" label="telefone"
+						value="#{transportadoraController.transportadora.telefone}"
+						required="true" requiredMessage="Preenchimento obrigatório"></p:inputMask>
+					<p:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="Celular:" for="celular" />
+					<p:inputMask mask="(99) 99999.9999" size="20" id="celular"
+						maxlength="15" label="celular"
+						value="#{transportadoraController.transportadora.celular}"
+						required="true" requiredMessage="Preenchimento obrigatório"></p:inputMask>
+					<p:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="Whatsapp:" for="whatsapp" />
+					<p:inputMask mask="+55 99 99999.9999" size="20" id="whatsapp"
+						maxlength="17" label="whatsapp"
+						value="#{transportadoraController.transportadora.whatsapp}"
+						required="true" requiredMessage="Preenchimento obrigatório"></p:inputMask>
+					<p:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="Modal:" for="modal" />
+					<p:inputText id="modal"
+						value="#{transportadoraController.transportadora.modal}" required="true"
+						requiredMessage="Preenchimento obrigatório" />
+					<h:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="CEP:" for="cep" />
+					<p:inputMask mask="99999-999" size="20" id="cep"
+						maxlength="9" label="cep"
+						value="#{transportadoraController.transportadora.cep}"
+						required="true" requiredMessage="Preenchimento obrigatório"></p:inputMask>
+					<p:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="Estado:" for="estado" />
+					<p:inputText id="estado"
+						value="#{transportadoraController.transportadora.estado}" required="true"
+						requiredMessage="Preenchimento obrigatório" />
+					<h:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="Cidade:" for="cidade" />
+					<p:inputText id="cidade"
+						value="#{transportadoraController.transportadora.cidade}" required="true"
+						requiredMessage="Preenchimento obrigatório" />
+					<h:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="Bairro:" for="bairro" />
+					<p:inputText id="bairro"
+						value="#{transportadoraController.transportadora.bairro}" required="true"
+						requiredMessage="Preenchimento obrigatório" />
+					<h:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="Rua / Avenida:" for="rua" />
+					<p:inputText id="rua"
+						value="#{transportadoraController.transportadora.rua}" required="true"
+						requiredMessage="Preenchimento obrigatório" />
+					<h:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="Numero:" for="numero" />
+					<p:inputText id="numero"
+						value="#{transportadoraController.transportadora.numero}" required="true"
+						requiredMessage="Preenchimento obrigatório" />
+					<h:message for="nome" style="color : red" />
+					
+					<p:outputLabel value="Logo:" for="logo" />
+					<p:inputText id="logo"
+						value="#{transportadoraController.transportadora.logo}" required="true"
+						requiredMessage="Preenchimento obrigatório" />
+					<h:message for="nome" style="color : red" />
+
+					<p:commandButton action="#{transportadoraController.cadastrar}"
+						value="Cadastrar" />
+
+				</h:panelGrid>
+			</fieldset>
+
+
+		</h:form>
+	</ui:define>
+	<ui:define name="texto">
+		Cadastro de Transportadora
+	</ui:define>
+</ui:composition>
+
+</html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="titulo">
+		Lista de Transportadoras
+	</ui:define>
+	<ui:define name="conteudo">
+
+	<f:metadata>
+		<f:viewAction action="#{transportadoraController.listar}" />
+	</f:metadata>
+	<h:form id="frm">
+		<p:growl id="msgs" showDetail="true"/>
+		<p:dataTable  value="#{transportadoraController.transportadoras}" var="transp"
+			border="1" cellspacing="0" cellpadding="2">
+		
+			<p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":frm:msgs" />
+ 	        <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":frm:msgs" />
+ 
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Nome" />
+				</f:facet>
+				<p:commandLink value="#{transp.nome}" action="#{transportadoraController.preparar(transp)}"></p:commandLink>
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="CNPJ" />
+				</f:facet>
+				<h:outputText value="#{transp.cnpj}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Telefone" />
+				</f:facet>
+				<h:outputText value="#{transp.telefone}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Celular" />
+				</f:facet>
+				<h:outputText value="#{transp.celular}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="E-mail" />
+				</f:facet>
+				<h:outputText value="#{transp.email}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">
+					<h:outputText value="Whatsapp" />
+				</f:facet>
+				<h:outputText value="#{transp.whatsapp}" />
+			</p:column>
+
+
+		</p:dataTable>
+	</h:form>
+		</ui:define>
+	<ui:define name="texto">
+		Lista de Transportadoras
+	</ui:define>
+</ui:composition>
+
+</html>
